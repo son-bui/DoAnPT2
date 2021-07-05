@@ -49,7 +49,6 @@
                                     <th scope="col">Điện thoại</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Địa chỉ</th>
-                                    <th scope="col">Nhãn KH</th>
                                     <th scope="col">Thao tác</th>
                                 </tr>
                             </thead>
@@ -59,7 +58,6 @@
                                     <td>Mark</td>
                                     <td>Mark</td>
                                     <td>Mark</td>
-                                    <td>Otto</td>
                                     <td>@mdo</td>
                                     <td>
                                         <a href="./edit.html" class="btn btn-sm btn-success">Sửa</a>
