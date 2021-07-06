@@ -5,10 +5,46 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Son_Bui
  */
-public class SanPham {
-    
+public class SanPham implements Serializable{
+    private int id;
+    private String tensp;
+    private String quycach;
+    private float gia;
+    public SanPham(){}
+    public SanPham(int id, String tensp, String quycach, float gia) {
+        this.id = id;
+        this.tensp = tensp;
+        this.quycach = quycach;
+        this.gia = gia;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getTensp() {
+        return tensp;
+    }
+    public void setTensp(String tensp) {
+        this.tensp = tensp;
+    }
+    public String getQuycach() {
+        return quycach;
+    }
+    public void setQuycach(String quycach) {
+        this.quycach = quycach;
+    }
+    public float getGia() {
+        return gia;
+    }
+    public void setGia(float gia) {
+        this.gia = gia;
+    }
 }
