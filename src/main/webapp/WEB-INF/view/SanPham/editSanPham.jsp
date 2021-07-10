@@ -42,20 +42,24 @@
                         <h5 class="font-weight-bold">Sửa sản phẩm</h5>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="./save.html" method="POST">
+                            <div class="form-group">
+                                <label for="id">Mã sản phẩm</label>
+                                <input type="text" class="form-control" id="id" name="id" value="${sp.id}">
+                            </div>
                             <div class="form-group">
                                 <label for="name">Tên sản phẩm</label>
-                                <input type="text" class="form-control" id="name" placeholder="">
+                                <input type="text" class="form-control" id="name" name="tensp" value="${sp.tensp}">
                             </div>
                             <div class="form-group">
                                 <label for="specifications">Quy cách</label>
-                                <input type="text" class="form-control" id="specifications" placeholder="">
+                                <input type="text" class="form-control" id="specifications" name="quycach" value="${sp.quycach}">
                             </div>
                             <div class="form-group">
                                 <label for="unitPrice">Giá gốc</label>
-                                <input type="text" class="form-control" id="unitPrice" placeholder="">
+                                <input type="text" class="form-control" id="unitPrice" name="gia" value="${sp.gia}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Lưu</button>
+                            <input type="submit" class="btn btn-primary" value="Lưu"/>
                         </form>
                     </div>
                 </div>

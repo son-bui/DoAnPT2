@@ -52,13 +52,17 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Mark</td>
-                                    <td>Mark</td>
-                                    <td>@mdo</td>
-                                    <td>
-                                        <a href="./edit.html" class="btn btn-sm btn-success">Sửa</a>
-                                        <a href="" class="btn btn-sm btn-danger">Xóa</a>
-                                    </td>
+                                    <c:forEach var="sp" items="${list}">
+                                    <tr>
+                                        <td> ${sp.tensp} </td>
+                                        <td> ${sp.quycach} </td>
+                                        <td> ${sp.gia} </td>
+                                        <td>
+                                            <a href="./edit.html?id=${sp.id}" class="btn btn-sm btn-success">Sửa</a>
+                                            <a href="./delete.html?id=${sp.id}" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có muốn xóa sản phẩm?')">Xóa</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tr>
                             </tbody>
                         </table>

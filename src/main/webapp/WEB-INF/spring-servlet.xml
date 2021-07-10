@@ -35,4 +35,8 @@
    <bean id="KhachHangDao" class="dao.KhachHangDao">    
         <property name="template" ref="jt"></property>    
     </bean> 
+    
+    <bean id="SanPhamDao" class="dao.SanPhamDao">    
+        <property name="template" ref="jt"></property>    
+    </bean> 
 </beans>  

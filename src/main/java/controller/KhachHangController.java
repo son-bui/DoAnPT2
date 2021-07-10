@@ -54,8 +54,7 @@ public class KhachHangController {
     }
 
     @RequestMapping(value = "/khachhang/edit")
-    public ModelAndView CapNhat_ui(@RequestParam("id") int id
-    ) {
+    public ModelAndView CapNhat_ui(@RequestParam("id") int id) {
         logger.info("Hien thi giao dien cap nhat khach hang moi");
         KhachHang kh = dao.TimKiemKhachHangId(id);
         return new ModelAndView("KhachHang/editKhachHang", "kh", kh);
