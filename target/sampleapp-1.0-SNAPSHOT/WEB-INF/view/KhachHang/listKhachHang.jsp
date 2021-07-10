@@ -19,11 +19,9 @@
             li:hover {
                 background-color: #16232D;
             }
-
             * {
                 box-sizing: border-box;
             }
-
             .card {
                 border: none;
             }
@@ -44,25 +42,27 @@
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Họ tên</th>
-                                    <th scope="col">Mã KH</th>
-                                    <th scope="col">Điện thoại</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Địa chỉ</th>
-                                    <th scope="col">Thao tác</th>
+                                    <th>Tên Khách Hàng</th>
+                                    <th>Điện thoại</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Số dư tài khoản</th>
+                                    <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Mark</td>
-                                    <td>Mark</td>
-                                    <td>Mark</td>
-                                    <td>Mark</td>
-                                    <td>@mdo</td>
-                                    <td>
-                                        <a href="./edit.html" class="btn btn-sm btn-success">Sửa</a>
-                                        <a href="" class="btn btn-sm btn-danger">Xóa</a>
+                                    <c:forEach var="kh" items="${list}">
+                                    <tr>
+                                        <td> ${kh.tenKh} </td>
+                                        <td> ${kh.sdt} </td>
+                                        <td> ${kh.diaChi} </td>
+                                        <td> ${kh.soDu} </td>
+                                        <td>
+                                        <a href="./edit.html?id=${kh.id}" class="btn btn-sm btn-success">Sửa</a>
+                                        <a href="./delete.html?id=${kh.id}" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có muốn xóa khách hàng?')">Xóa</a>
                                     </td>
+                                    </tr>
+                                </c:forEach>
                                 </tr>
                             </tbody>
                         </table>

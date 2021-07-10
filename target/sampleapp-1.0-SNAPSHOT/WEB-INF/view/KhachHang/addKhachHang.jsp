@@ -41,28 +41,28 @@
                         <h5 class="font-weight-bold">Thêm khách hàng</h5>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="./save.html" method="POST">
+<!--                            <div class="form-group">
+                                <label for="id">Mã khách hàng</label>
+                                <input type="text" class="form-control" id="id" name="id" >
+                            </div>-->
                             <div class="form-group">
                                 <label for="name">Tên khách hàng</label>
-                                <input type="text" class="form-control" id="name" placeholder="">
+                                <input type="text" class="form-control" id="name" name="tenKh">
                             </div>
                             <div class="form-group">
-                                <label for="defaultCode">Mã khách hàng</label>
-                                <input type="text" class="form-control" id="defaultCode" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="unitPrice">Điện thoại</label>
-                                <input type="text" class="form-control" id="unitPrice" placeholder="">
+                                <label for="phone">Điện thoại</label>
+                                <input type="text" class="form-control" id="phone" name="sdt">
                             </div>
                             <div class="form-group">
                                 <label for="address">Địa chỉ</label>
-                                <input type="text" class="form-control" id="address" placeholder="">
+                                <input type="text" class="form-control" id="address" name="diaChi">
                             </div>
                             <div class="form-group">
-                                <label for="tag">Nhãn khách hàng</label>
-                                <input type="text" class="form-control" id="tag" placeholder="">
+                                <label for="accountBalance">Số dư tài khoản</label>
+                                <input type="text" class="form-control" id="accountBalance" name="soDu">
                             </div>
-                            <button type="submit" class="btn btn-primary">Lưu</button>
+                            <input type="submit" class="btn btn-primary" value="Lưu"/>
                         </form>
                     </div>
                 </div>

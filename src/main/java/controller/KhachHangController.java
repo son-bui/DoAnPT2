@@ -5,9 +5,15 @@
  */
 package controller;
 
+import dao.KhachHangDao;
+import java.util.List;
+import model.KhachHang;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -17,23 +23,48 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class KhachHangController {
 
-    private static final Logger logger = Logger.getLogger(NhanVienController.class);
-    
-    @RequestMapping(value = "/khachhang/list")
-    public ModelAndView LayDanhSach(){
+    private static final Logger logger = Logger.getLogger(KhachHangController.class);
+
+    @Autowired
+    KhachHangDao dao;
+
+    @RequestMapping(value = "/khachhang/list", method = RequestMethod.GET)
+    public ModelAndView LayDanhSach() {
         logger.info("Hien thi giao dien danh sach khach hang");
-        return new ModelAndView("KhachHang/listKhachHang");
+        List<KhachHang> lst = dao.LayDanhSachKhachHang();
+        return new ModelAndView("KhachHang/listKhachHang", "list", lst);
     }
-    
+
     @RequestMapping(value = "/khachhang/add")
-    public ModelAndView Them_ui(){
+    public ModelAndView Them_ui() {
         logger.info("Hien thi giao dien them khach hang moi");
         return new ModelAndView("KhachHang/addKhachHang");
     }
-    
+
+    @RequestMapping(value = "/khachhang/save", method = RequestMethod.POST)
+    public String Them(KhachHang kh) {
+        if (kh.getId() >= 0) {
+            dao.CapNhat(kh);
+            logger.info("Cap nhat khach hang");
+        } else {
+            logger.info("Them khach hang moi");
+            dao.Them(kh);
+        }
+        return "redirect:/khachhang/list.html";
+    }
+
     @RequestMapping(value = "/khachhang/edit")
-    public ModelAndView CapNhat_ui(){
+    public ModelAndView CapNhat_ui(@RequestParam("id") int id
+    ) {
         logger.info("Hien thi giao dien cap nhat khach hang moi");
-        return new ModelAndView("KhachHang/editKhachHang");
+        KhachHang kh = dao.TimKiemKhachHangId(id);
+        return new ModelAndView("KhachHang/editKhachHang", "kh", kh);
+    }
+
+    @RequestMapping(value = "/khachhang/delete")
+    public String Xoa(@RequestParam("id") int id) {
+        dao.Xoa(id);
+        return "redirect:/khachhang/list.html";
+
     }
 }

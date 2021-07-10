@@ -22,7 +22,7 @@ public class KhachHangDao {
         this.template = template;
     }
     public void Them(KhachHang kh) {
-        String sql = String.format("insert into khachhang (tenKh,sdt,diaChi,soDu) values('%s','%s','%s','%s')", kh.getTenKh(), kh.getSdt(), kh.getDiaChi(), kh.getSoDu());
+        String sql = String.format("insert into khachhang(tenKh,sdt,diaChi,soDu) values('%s','%s','%s','%s')", kh.getTenKh(), kh.getSdt(), kh.getDiaChi(), kh.getSoDu());
         template.update(sql);
     }
 
@@ -49,7 +49,7 @@ public class KhachHangDao {
                 e.setTenKh(rs.getString(2));
                 e.setSdt(rs.getString(3));
                 e.setDiaChi(rs.getString(4));
-                e.setSoDu(rs.getFloat(4));            
+                e.setSoDu(rs.getFloat(5));            
                 return e;
             }
         });

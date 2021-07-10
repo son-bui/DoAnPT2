@@ -19,7 +19,7 @@
     
     <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">    
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>    
-        <property name="url" value="jdbc:mysql://localhost:3306/nhanvien"></property>    
+        <property name="url" value="jdbc:mysql://localhost:3306/shopdb"></property>    
         <property name="username" value="root"></property>    
         <property name="password" value=""></property>    
     </bean>    
@@ -32,4 +32,7 @@
         <property name="template" ref="jt"></property>    
     </bean>     
    
+   <bean id="KhachHangDao" class="dao.KhachHangDao">    
+        <property name="template" ref="jt"></property>    
+    </bean> 
 </beans>  
