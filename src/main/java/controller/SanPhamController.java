@@ -41,25 +41,28 @@ public class SanPhamController {
         return new ModelAndView("SanPham/addSanPham");
     }
 
-    @RequestMapping(value = "/sanpham/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/sanpham/create", method = RequestMethod.POST)
     public String Them(SanPham sp) {
-        if (sp.getId() >= 0) {
-            dao.CapNhat(sp);
-            logger.info("Cap nhat san pham");
-        } else {
-            logger.info("Them san pham moi");
-            dao.Them(sp);
-        }
+        dao.Them(sp);
+        logger.info("Cap nhat san pham");
         return "redirect:/sanpham/list.html";
     }
-    
+
+    @RequestMapping(value = "/sanpham/update", method = RequestMethod.POST)
+    public String CapNhat(SanPham sp) {
+        dao.CapNhat(sp);
+        logger.info("Them san pham moi");
+
+        return "redirect:/sanpham/list.html";
+    }
+
     @RequestMapping(value = "/sanpham/edit")
     public ModelAndView CapNhat_ui(@RequestParam("id") int id) {
         logger.info("Hien thi giao dien cap nhat san pham");
         SanPham sp = dao.TimKiemSanPhamTheoId(id);
         return new ModelAndView("SanPham/editSanPham", "sp", sp);
     }
-    
+
     @RequestMapping(value = "/sanpham/delete")
     public String Xoa(@RequestParam("id") int id) {
         dao.Xoa(id);

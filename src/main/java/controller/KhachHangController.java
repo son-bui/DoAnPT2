@@ -41,15 +41,17 @@ public class KhachHangController {
         return new ModelAndView("KhachHang/addKhachHang");
     }
 
-    @RequestMapping(value = "/khachhang/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/khachhang/create", method = RequestMethod.POST)
     public String Them(KhachHang kh) {
-        if (kh.getId() >= 0) {
-            dao.CapNhat(kh);
-            logger.info("Cap nhat khach hang");
-        } else {
-            logger.info("Them khach hang moi");
-            dao.Them(kh);
-        }
+        logger.info("Them khach hang moi");
+        dao.Them(kh);
+        return "redirect:/khachhang/list.html";
+    }
+
+    @RequestMapping(value = "/khachhang/update", method = RequestMethod.POST)
+    public String CapNhat(KhachHang kh) {
+        dao.CapNhat(kh);
+        logger.info("Cap nhat khach hang");
         return "redirect:/khachhang/list.html";
     }
 

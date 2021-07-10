@@ -42,7 +42,7 @@
                         <h5 class="font-weight-bold">Sửa khách hàng</h5>
                     </div>
                     <div class="card-body">
-                        <form action="./save.html" method="POST">
+                        <form action="./update.html" method="POST">
                             <div class="form-group">
                                 <label for="id">Mã khách hàng</label>
                                 <input type="text" class="form-control" id="id" name="id" value="${kh.id}">

@@ -41,7 +41,7 @@
                         <h5 class="font-weight-bold">Thêm khách hàng</h5>
                     </div>
                     <div class="card-body">
-                        <form action="./save.html" method="POST">
+                        <form action="./create.html" method="POST">
 <!--                            <div class="form-group">
                                 <label for="id">Mã khách hàng</label>
                                 <input type="text" class="form-control" id="id" name="id" >

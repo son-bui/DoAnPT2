@@ -42,18 +42,18 @@
                         <h5 class="font-weight-bold">Thêm sản phẩm</h5>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="./create.html" method="POST">
                             <div class="form-group">
                                 <label for="name">Tên sản phẩm</label>
-                                <input type="text" class="form-control" id="name" placeholder="">
+                                <input type="text" class="form-control" id="name" name="tensp">
                             </div>
                             <div class="form-group">
                                 <label for="specifications">Quy cách</label>
-                                <input type="text" class="form-control" id="specifications" placeholder="">
+                                <input type="text" class="form-control" id="specifications" name="quycach">
                             </div>
                             <div class="form-group">
                                 <label for="unitPrice">Giá gốc</label>
-                                <input type="text" class="form-control" id="unitPrice" placeholder="">
+                                <input type="text" class="form-control" id="unitPrice" name="gia">
                             </div>
                             <button type="submit" class="btn btn-primary">Lưu</button>
                         </form>
