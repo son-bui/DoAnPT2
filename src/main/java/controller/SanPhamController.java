@@ -41,14 +41,14 @@ public class SanPhamController {
         return new ModelAndView("SanPham/addSanPham");
     }
 
-    @RequestMapping(value = "/sanpham/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/sanpham/create", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
     public String Them(SanPham sp) {
         dao.Them(sp);
         logger.info("Cap nhat san pham");
         return "redirect:/sanpham/list.html";
     }
 
-    @RequestMapping(value = "/sanpham/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/sanpham/update", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
     public String CapNhat(SanPham sp) {
         dao.CapNhat(sp);
         logger.info("Them san pham moi");

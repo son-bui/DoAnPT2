@@ -22,7 +22,7 @@ public class SanPhamDao {
         this.template = template;
     }
     public void Them(SanPham sp) {
-        String sql = String.format("insert into sanpham (tensp,quycach,gia) values('%s','%s','%s')", sp.getTensp(), sp.getQuycach(), sp.getGia());
+        String sql = String.format("insert into sanpham (tensp,quycach,gia) values(N'%s',N'%s','%s')", sp.getTensp(), sp.getQuycach(), sp.getGia());
         template.update(sql);
     }
 

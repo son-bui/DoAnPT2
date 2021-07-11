@@ -41,14 +41,14 @@ public class KhachHangController {
         return new ModelAndView("KhachHang/addKhachHang");
     }
 
-    @RequestMapping(value = "/khachhang/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/khachhang/create", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
     public String Them(KhachHang kh) {
         logger.info("Them khach hang moi");
         dao.Them(kh);
         return "redirect:/khachhang/list.html";
     }
 
-    @RequestMapping(value = "/khachhang/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/khachhang/update", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
     public String CapNhat(KhachHang kh) {
         dao.CapNhat(kh);
         logger.info("Cap nhat khach hang");

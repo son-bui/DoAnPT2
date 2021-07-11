@@ -23,12 +23,12 @@ public class HoaDonDao {
         this.template = template;
     }
     public void Them(HoaDon hd) {
-        String sql = String.format("insert into hoadon (maKh,ngayLap,tongTien) values('%s','%s','%s')", hd.getMaKh(), hd.getNgaylap(), hd.getTongtien());
+        String sql = String.format("insert into hoadon (maKh,ngayLap,tongTien) values('%s','%s','%s')", hd.getMaKh(), hd.getNgayLap(), hd.getTongTien());
         template.update(sql);
     }
 
     public int CapNhat(HoaDon hd) {
-        String sql = String.format("update hoadon set maKh='%s',ngayLap='%s', tongTien='%s' where id=%d",hd.getMaKh(), hd.getNgaylap(), hd.getTongtien(),hd.getId());
+        String sql = String.format("update hoadon set maKh='%s',ngayLap='%s', tongTien='%s' where id=%d",hd.getMaKh(), hd.getNgayLap(), hd.getTongTien(),hd.getId());
         return template.update(sql);
     }
 
@@ -42,14 +42,14 @@ public class HoaDonDao {
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<HoaDon>(HoaDon.class));
     }
 
-    public List<HoaDon> LayDanhSachSanPham() {
-        return template.query("select * from hoadon", new RowMapper<HoaDon>() {
+    public List<HoaDon> LayDanhSachHoaDon() {
+        return template.query("select * from hoadon as hd GROUP by hd.maKh, hd.ngayLap", new RowMapper<HoaDon>() {
             public HoaDon mapRow(ResultSet rs, int row) throws SQLException {
                 HoaDon e = new HoaDon();
                 e.setId(rs.getInt(1));
                 e.setMaKh(rs.getInt(2));
-                e.setNgaylap(rs.getString(3));
-                e.setTongtien(rs.getFloat(4));
+                e.setNgayLap(rs.getString(3));
+                e.setTongTien(rs.getFloat(4));
                 return e;
             }
         });

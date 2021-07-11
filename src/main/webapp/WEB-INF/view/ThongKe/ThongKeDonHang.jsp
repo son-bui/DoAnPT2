@@ -1,6 +1,6 @@
 <%-- 
-    Document   : listKhachHang
-    Created on : Jun 28, 2021, 5:40:34 PM
+    Document   : ThongKeDonHang
+    Created on : Jul 11, 2021, 9:51:40 AM
     Author     : Son_Bui
 --%>
 
@@ -19,14 +19,16 @@
             li:hover {
                 background-color: #16232D;
             }
+
             * {
                 box-sizing: border-box;
             }
+
             .card {
                 border: none;
             }
         </style>
-        <title>Danh sách khách hàng</title>
+        <title>Thống kê đơn hàng</title>
     </head>
     <body>
         <div style=" height: 100vh;" class="d-flex">
@@ -35,32 +37,24 @@
             <div style="width: 75%;" class="">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="font-weight-bold">Danh sách khách hàng</h5>
+                        <h5 class="font-weight-bold">Thống kê đơn hàng</h5>
                     </div>
                     <div class="card-body">
-                        <a href="./add.html" class="btn btn-sm btn-primary mb-2">Thêm</a>
-                        <table class="table table-striped table-bordered">
+                        <table class="table table-stripe table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Tên Khách Hàng</th>
-                                    <th>Điện thoại</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Số dư tài khoản</th>
-                                    <th>Thao tác</th>
+                                    <th scope="col">Khách hàng</th>
+                                    <th scope="col">Ngày lập</th>
+                                    <th scope="col">Tổng tiền</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <c:forEach var="kh" items="${list}">
+                                    <c:forEach var="dh" items="${list}">
                                     <tr>
-                                        <td> ${kh.tenKh} </td>
-                                        <td> ${kh.sdt} </td>
-                                        <td> ${kh.diaChi} </td>
-                                        <td> ${kh.soDu} </td>
-                                        <td>
-                                        <a href="./edit.html?id=${kh.id}" class="btn btn-sm btn-success">Sửa</a>
-                                        <a href="./delete.html?id=${kh.id}" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có muốn xóa khách hàng?')">Xóa</a>
-                                    </td>
+                                        <td> ${dh.tenKh} </td>
+                                        <td> ${dh.ngayLap} </td>
+                                        <td> ${dh.tongTien} </td>
                                     </tr>
                                 </c:forEach>
                                 </tr>

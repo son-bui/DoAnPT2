@@ -9,17 +9,21 @@ import java.io.Serializable;
 
 /**
  *
- * @author TMT
+ * @author Son_Bui
  */
-public class HoaDon implements Serializable{
+public class ThongKeDonHang implements Serializable {
+
     private int id;
-    private int maKh;
+    private String tenKh;
     private String ngayLap;
     private float tongTien;
-    public HoaDon(){}
-    public HoaDon(int id, int maKh, String ngayLap, float tongTien) {
+
+    public ThongKeDonHang() {
+    }
+
+    public ThongKeDonHang(int id, String tenKh, String ngayLap, float tongTien) {
         this.id = id;
-        this.maKh = maKh;
+        this.tenKh = tenKh;
         this.ngayLap = ngayLap;
         this.tongTien = tongTien;
     }
@@ -32,12 +36,12 @@ public class HoaDon implements Serializable{
         this.id = id;
     }
 
-    public int getMaKh() {
-        return maKh;
+    public String getTenKh() {
+        return tenKh;
     }
 
-    public void setMaKh(int maKh) {
-        this.maKh = maKh;
+    public void setTenKh(String tenKh) {
+        this.tenKh = tenKh;
     }
 
     public String getNgayLap() {

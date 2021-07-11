@@ -28,7 +28,7 @@
                 </li>
                 <li class="nav-item d-flex align-items-center pl-5 py-2">
                     <i class="far fa-chart-bar text-white mr-2"></i>
-                    <a class="nav-link text-white" href="">Thống kê đơn hàng</a>
+                    <a class="nav-link text-white" href="http://localhost:8080/sampleapp/thongkedonhang.html">Thống kê đơn hàng</a>
                 </li>
 
             </ul>
