@@ -43,7 +43,7 @@
                     </div>
                     <div class="card-body">
                         <form action="./update.html" method="POST">
-                            <div class="form-group">
+                            <div class="form-group d-none">
                                 <label for="id">Mã sản phẩm</label>
                                 <input type="text" class="form-control" id="id" name="id" value="${sp.id}">
                             </div>
