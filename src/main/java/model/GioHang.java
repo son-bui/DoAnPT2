@@ -13,9 +13,9 @@ public class GioHang {
     private int idSp;
     private String tenSp;
     private int soLuong;
-    private float gia;
+    private double gia;
     public GioHang() {}
-    public GioHang(int idSp, String tenSp, int soLuong, float gia) {
+    public GioHang(int idSp, String tenSp, int soLuong, double gia) {
         this.idSp = idSp;
         this.tenSp = tenSp;
         this.soLuong = soLuong;
@@ -46,11 +46,11 @@ public class GioHang {
         this.soLuong = soLuong;
     }
 
-    public float getGia() {
+    public double getGia() {
         return gia;
     }
 
-    public void setGia(float gia) {
+    public void setGia(double gia) {
         this.gia = gia;
     }
 }
