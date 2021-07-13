@@ -54,4 +54,18 @@ public class KhachHangDao {
             }
         });
     }
+    
+    public List<KhachHang> TimKiemDanhSachKhachHang() {
+        return template.query("select * from khachhang", new RowMapper<KhachHang>() {
+            public KhachHang mapRow(ResultSet rs, int row) throws SQLException {
+                KhachHang e = new KhachHang();
+                e.setId(rs.getInt(1));
+                e.setTenKh(rs.getString(2));
+                e.setSdt(rs.getString(3));
+                e.setDiaChi(rs.getString(4));
+                e.setSoDu(rs.getFloat(5));            
+                return e;
+            }
+        });
+    }
 }

@@ -15,9 +15,9 @@ public class SanPham implements Serializable{
     private int id;
     private String tensp;
     private String quycach;
-    private float gia;
+    private double gia;
     public SanPham(){}
-    public SanPham(int id, String tensp, String quycach, float gia) {
+    public SanPham(int id, String tensp, String quycach, double gia) {
         this.id = id;
         this.tensp = tensp;
         this.quycach = quycach;
@@ -41,10 +41,10 @@ public class SanPham implements Serializable{
     public void setQuycach(String quycach) {
         this.quycach = quycach;
     }
-    public float getGia() {
+    public double getGia() {
         return gia;
     }
-    public void setGia(float gia) {
+    public void setGia(double gia) {
         this.gia = gia;
     }
 }

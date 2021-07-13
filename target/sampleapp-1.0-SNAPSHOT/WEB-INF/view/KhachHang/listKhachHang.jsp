@@ -38,7 +38,15 @@
                         <h5 class="font-weight-bold">Danh sách khách hàng</h5>
                     </div>
                     <div class="card-body">
-                        <a href="./add.html" class="btn btn-sm btn-primary mb-2">Thêm</a>
+                        <div class="d-flex justify-content-between">
+                            <a href="./add.html" class="btn btn-sm btn-primary mb-2">Thêm</a>
+                            <form action="./search.html" method="POST" class="d-flex">
+                                <div class="form-group">
+                                    <!--<span class="fas fa-search search-icon"></span>-->
+                                    <input style="width: 400px;" type="text" class="form-control" placeholder="Tìm kiếm theo tên">
+                                </div>
+                                <input type="submit" class="btn btn-primary btn-sm" value="Tìm kiếm"/>
+                        </div>
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
@@ -58,9 +66,9 @@
                                         <td> ${kh.diaChi} </td>
                                         <td> ${kh.soDu} </td>
                                         <td>
-                                        <a href="./edit.html?id=${kh.id}" class="btn btn-sm btn-success">Sửa</a>
-                                        <a href="./delete.html?id=${kh.id}" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có muốn xóa khách hàng?')">Xóa</a>
-                                    </td>
+                                            <a href="./edit.html?id=${kh.id}" class="btn btn-sm btn-success">Sửa</a>
+                                            <a href="./delete.html?id=${kh.id}" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có muốn xóa khách hàng?')">Xóa</a>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                                 </tr>

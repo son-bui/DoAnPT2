@@ -68,4 +68,11 @@ public class KhachHangController {
         return "redirect:/khachhang/list.html";
 
     }
+
+    @RequestMapping(value = "/khachhang/search", method = RequestMethod.POST)
+    public ModelAndView TimKiem(String tenKH) {
+        logger.info("Hien thi giao dien danh sach khach hang");
+        List<KhachHang> lst = dao.TimKiemDanhSachKhachHang();
+        return new ModelAndView("KhachHang/listKhachHang", "list", lst);
+    }
 }

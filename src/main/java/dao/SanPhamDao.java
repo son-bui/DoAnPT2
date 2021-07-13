@@ -48,7 +48,7 @@ public class SanPhamDao {
                 e.setId(rs.getInt(1));
                 e.setTensp(rs.getString(2));
                 e.setQuycach(rs.getString(3));
-                e.setGia(rs.getFloat(4));
+                e.setGia(rs.getDouble(4));
                 return e;
             }
         });
