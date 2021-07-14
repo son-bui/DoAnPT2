@@ -1,267 +1,86 @@
+<%-- 
+    Document   : listMuaHang
+    Created on : Jul 12, 2021, 2:47:33 PM
+    Author     : Trung
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap 4 Navbar Color Schemes</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<style>
-body {
-    color: #566787;
-    background: #f5f5f5;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 13px;
-}
-.table-responsive {
-    margin: 30px 0;
-}
-.table-wrapper {
-    min-width: 1000px;
-    background: #fff;
-    padding: 20px 25px;
-    border-radius: 3px;
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
-}
-.table-title {
-    padding-bottom: 15px;
-    background: #299be4;
-    color: #fff;
-    padding: 16px 30px;
-    margin: -20px -25px 10px;
-    border-radius: 3px 3px 0 0;
-}
-.table-title h2 {
-    margin: 5px 0 0;
-    font-size: 24px;
-}
-.table-title .btn {
-    color: #566787;
-    float: right;
-    font-size: 13px;
-    background: #fff;
-    border: none;
-    min-width: 50px;
-    border-radius: 2px;
-    border: none;
-    outline: none !important;
-    margin-left: 10px;
-}
-.table-title .btn:hover, .table-title .btn:focus {
-    color: #566787;
-    background: #f2f2f2;
-}
-.table-title .btn i {
-    float: left;
-    font-size: 21px;
-    margin-right: 5px;
-}
-.table-title .btn span {
-    float: left;
-    margin-top: 2px;
-}
-table.table tr th, table.table tr td {
-    border-color: #e9e9e9;
-    padding: 12px 15px;
-    vertical-align: middle;
-}
-table.table tr th:first-child {
-    width: 250px;
-}
-table.table tr th:last-child {
-    width: 100px;
-}
-table.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #fcfcfc;
-}
-table.table-striped.table-hover tbody tr:hover {
-    background: #f5f5f5;
-}
-table.table th i {
-    font-size: 13px;
-    margin: 0 5px;
-    cursor: pointer;
-}	
-table.table td:last-child i {
-    opacity: 0.9;
-    font-size: 22px;
-    margin: 0 5px;
-}
-table.table td a {
-    font-weight: bold;
-    color: #566787;
-    display: inline-block;
-    text-decoration: none;
-}
-table.table td a:hover {
-    color: #2196F3;
-}
-table.table td a.settings {
-    color: #2196F3;
-}
-table.table td a.delete {
-    color: #F44336;
-}
-table.table td i {
-    font-size: 19px;
-}
-table.table .avatar {
-    border-radius: 50%;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-.status {
-    font-size: 30px;
-    margin: 2px 2px 0 0;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 10px;
-}
-.text-success {
-    color: #10c469;
-}
-.text-info {
-    color: #62c9e8;
-}
-.text-warning {
-    color: #FFC107;
-}
-.text-danger {
-    color: #ff5b5b;
-}
-.pagination {
-    float: right;
-    margin: 0 0 5px;
-}
-.pagination li a {
-    border: none;
-    font-size: 13px;
-    min-width: 30px;
-    min-height: 30px;
-    color: #999;
-    margin: 0 2px;
-    line-height: 30px;
-    border-radius: 2px !important;
-    text-align: center;
-    padding: 0 6px;
-}
-.pagination li a:hover {
-    color: #666;
-}	
-.pagination li.active a, .pagination li.active a.page-link {
-    background: #03A9F4;
-}
-.pagination li.active a:hover {        
-    background: #0397d6;
-}
-.pagination li.disabled i {
-    color: #ccc;
-}
-.pagination li i {
-    font-size: 16px;
-    padding-top: 6px
-}
-.hint-text {
-    float: left;
-    margin-top: 10px;
-    font-size: 13px;
-}
-</style>
-<script>
-$(document).ready(function(){
-	$('[data-toggle="tooltip"]').tooltip();
-});
-</script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-<style>
-    .bs-example{
-        margin: 20px;
-    }
-    .navbar{
-        margin-bottom: 1rem;
-    }
-</style>
-</head>
-<body>
-<div>
-    
-  <div class="container-xl">
-    <div class="table-responsive">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <h2>Cart</h2>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+        <style>
+            li:hover {
+                background-color: #16232D;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .card {
+                border: none;
+            }
+        </style>
+        <title>Danh sách sản phẩm</title>
+    </head>
+    <body>
+        <div style=" height: 100vh;" class="d-flex">
+            <jsp:include page="/WEB-INF/view/page/navigation.jsp"/>
+
+            <div style="width: 75%;" class="">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="font-weight-bold">Danh sách Giỏ hàng</h5>
                     </div>
-                    <div class="col-sm-7">
-                        <a class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Payment</span></a>	
-                        <a href="./cart/clear.html" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Clear</span></a>	
+                    <div class="card-body">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Tên sp</th>						
+                                    <th>Số lượng</th>
+                                    <th>Giảm giá</th>
+                                    <th>Số tiền</th>
+                                    <th>Tổng</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="item" items="${list}">
+                                    <tr>
+                                        <td>${item.name}</td>
+                                        <td>${item.quantity}</td>
+                                        <td>${item.discount}%</td>                        
+                                        <td><del class="text-error">${item.totalPrice}</del></td>
+                                        <td>${item.afterDiscount}</td>
+                                        <td>
+                                            <a href="./cart/delete.html?id=${item.prodId}" class="delete" title="Delete" data-
+                                               toggle="tooltip">Xóa</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                            <a href="./cart/clear.html" style=";" class="btn btn-sm btn-primary mb-2">Xóa tất cả</a>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div class="bs-example">
-                <form action="./cart/payment.html" method="post" id="cusform">
-                    <div class="form-group row">
-                        <label for="inputCusName" class="col-sm-2 col-form-label">Customer:</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" name="customerid">
-                                <c:forEach var="cus" items="${lstcus}">
-                                    <option value="${cus.id}">${cus.tenKh}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputDiscount" class="col-sm-2 col-form-label">Discount:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputDiscount" placeholder="Discount (%)" name="discount" required>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>						
-                        <th>Quantity</th>
-                        <th>Discount</th>
-                        <th>Amount</th>
-                        <th>Total</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="item" items="${list}">
-                        <tr>
-                            <td>${item.name}</td>
-                            <td>${item.quantity}</td>
-                            <td>${item.discount}</td>                        
-                            <td><del class="text-error">${item.totalPrice}</del></td>
-                            <td>${item.afterDiscount}</td>
-                            <td>
-                                <a href="./cart/delete.html?id=${item.prodId}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-            <div class="clearfix">
-                <ul class="pagination">
-                    <li class="page-item"><a href="#" class="page-link">Total Price <b>${totalprice}</b></a></li>
-                </ul>
-            </div>
         </div>
-    </div>
-</div>
 
-</div>
-</body>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+    </body>
 </html>

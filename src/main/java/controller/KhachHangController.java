@@ -7,6 +7,7 @@ package controller;
 
 import dao.KhachHangDao;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import model.KhachHang;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,26 @@ public class KhachHangController {
     public ModelAndView Them_ui() {
         logger.info("Hien thi giao dien them khach hang moi");
         return new ModelAndView("KhachHang/addKhachHang");
+    }
+    @RequestMapping(value = "/khachhang/naptien")
+    public ModelAndView naptien_ui() {
+        logger.info("naptien");
+        List<KhachHang> lst = dao.LayDanhSachKhachHang();
+        return new ModelAndView("KhachHang/naptien","list", lst);
+    }
+    @RequestMapping(value = "/khachhang/naptiendone")
+    public ModelAndView naptien(HttpServletRequest rs) {
+        logger.info("naptien");
+        float money = Float.parseFloat(rs.getParameter("money"));
+        int id = Integer.parseInt(rs.getParameter("id"));
+        
+        KhachHang kh = dao.TimKiemKhachHangId(id);
+        
+        float pM = kh.getSoDu();
+        kh.setSoDu(pM+money);
+        dao.CapNhat(kh);
+        List<KhachHang> lst = dao.LayDanhSachKhachHang();
+        return new ModelAndView("KhachHang/listKhachHang","list", lst);
     }
 
     @RequestMapping(value = "/khachhang/create", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")

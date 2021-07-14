@@ -39,7 +39,8 @@
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            <a href="./add.html" style="height: 38px;" class="btn btn-sm btn-primary mb-2">Thêm</a>
+                            <a href="./add.html" style=";" class="btn btn-sm btn-primary mb-2">Thêm</a>
+                            <a href="./naptien.html" style="height: 38px;" class="btn btn-sm btn-primary mb-2">Nạp Tiền</a>
                             <form action="./search.html" method="POST" class="d-flex">
                                 <div class="form-group">
                                     <!--<span class="fas fa-search search-icon"></span>-->
