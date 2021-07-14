@@ -9,7 +9,7 @@ package model;
  *
  * @author Trung
  */
-public class ItemInCart {
+public class SanPhamGh {
     private int prodId;
     private String name;
     private int spec;

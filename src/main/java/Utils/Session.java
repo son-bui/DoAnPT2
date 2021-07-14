@@ -5,12 +5,12 @@
  */
 package Utils;
 
-import model.CartInfo;
+import model.GioHang;
 
 /**
  *
  * @author ACER
  */
 public class Session {
-    public static CartInfo CartInfoInSession = new CartInfo();
+    public static GioHang SanPhamGHSession = new GioHang();
 }

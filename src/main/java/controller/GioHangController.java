@@ -8,7 +8,7 @@ import Utils.Session;
 import dao.SanPhamDao;
 import dao.KhachHangDao;
 import java.util.List;
-import model.ItemInCart;
+import model.SanPhamGh;
 import model.SanPham;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,51 +21,51 @@ import javax.servlet.http.HttpServletRequest;
  * @author Trung
  */
 @Controller
-public class ShopController {
+public class GioHangController {
     @Autowired
     SanPhamDao dao;
     
     @Autowired
     KhachHangDao cusdao;
-    @RequestMapping(value = "/shop", method = RequestMethod.GET)
+    @RequestMapping(value = "/muahang", method = RequestMethod.GET)
     public ModelAndView getAll(HttpServletRequest request){       
         List<SanPham> lst;
 
             lst = dao.LayDanhSachSanPham();
 
-        ModelAndView mav = new ModelAndView("shopview");       
+        ModelAndView mav = new ModelAndView("muahangview");       
         mav.addObject("list", lst);
-        mav.addObject("totalItem", Utils.Session.CartInfoInSession.getCarts().size());
+        mav.addObject("totalItem", Utils.Session.SanPhamGHSession.getCarts().size());
         return mav;
     }
     
-    @RequestMapping(value = "/shop/add",method = RequestMethod.POST)
-    public String add(ItemInCart item){
-        Session.CartInfoInSession.addItem(item);
-        return "redirect:/shop.html";
+    @RequestMapping(value = "/muahang/add",method = RequestMethod.POST)
+    public String add(SanPhamGh item){
+        Session.SanPhamGHSession.addItem(item);
+        return "redirect:/muahang.html";
     }
     
-    @RequestMapping(value = "/cart/clear",method = RequestMethod.GET)
+    @RequestMapping(value = "/giohang/clear",method = RequestMethod.GET)
     public String clearCart(HttpServletRequest request){
-        Session.CartInfoInSession.clearCart();
-        return "redirect:/cart.html";
+        Session.SanPhamGHSession.clearCart();
+        return "redirect:/giohang.html";
     }
     
-    @RequestMapping(value = "/cart/delete",method = RequestMethod.GET)
+    @RequestMapping(value = "/giohang/delete",method = RequestMethod.GET)
     public String deleteItem(HttpServletRequest request){
         int prodId = Integer.parseInt(request.getParameter("id"));
         
-        Session.CartInfoInSession.deleteItemByProdId(prodId);
-        return "redirect:/cart.html";
+        Session.SanPhamGHSession.deleteItemByProdId(prodId);
+        return "redirect:/giohang.html";
     }
     
-    @RequestMapping(value = "/cart", method = RequestMethod.GET)
+    @RequestMapping(value = "/giohang", method = RequestMethod.GET)
     public ModelAndView cart_UI(HttpServletRequest request){
-        ModelAndView mav = new ModelAndView("cartview");
+        ModelAndView mav = new ModelAndView("giohangview");
         
-        mav.addObject("list", Session.CartInfoInSession.getCarts());
+        mav.addObject("list", Session.SanPhamGHSession.getCarts());
         mav.addObject("lstcus", cusdao.LayDanhSachKhachHang());
-        mav.addObject("totalprice", Session.CartInfoInSession.getTotalPrice());
+        mav.addObject("totalprice", Session.SanPhamGHSession.getTotalPrice());
         
         return mav;
     }

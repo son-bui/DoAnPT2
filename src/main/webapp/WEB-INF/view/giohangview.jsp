@@ -60,13 +60,13 @@
                                         <td><del class="text-error">${item.totalPrice}</del></td>
                                         <td>${item.afterDiscount}</td>
                                         <td>
-                                            <a href="./cart/delete.html?id=${item.prodId}" class="delete" title="Delete" data-
+                                            <a href="./giohang/delete.html?id=${item.prodId}" class="delete" title="Delete" data-
                                                toggle="tooltip">Xóa</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
-                            <a href="./cart/clear.html" style=";" class="btn btn-sm btn-primary mb-2">Xóa tất cả</a>
+                            <a href="./giohang/clear.html" style=";" class="btn btn-sm btn-primary mb-2">Xóa tất cả</a>
                         </table>
                     </div>
                 </div>

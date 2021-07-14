@@ -58,7 +58,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="phone">Số tiền</label>
-                                <input type="text" class="form-control" id="inputTien" name="money">
+                                <input type="text" class="form-control" id="inputTien" name="money" required>
                             </div>                          
                             <input type="submit" class="btn btn-primary" value="Lưu"/>
                         </form>

@@ -1,13 +1,5 @@
-<%-- 
-    Document   : listMuaHang
-    Created on : Jul 12, 2021, 2:47:33 PM
-    Author     : Trung
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,37 +29,51 @@
             <div style="width: 75%;" class="">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="font-weight-bold">Danh sách Giỏ hàng</h5>
+                        <h5 class="font-weight-bold">Danh sách sản phẩm</h5>
                     </div>
                     <div class="card-body">
+                        <div class="col-sm-7">
+                            <a href="./giohang.html" class="btn btn-secondary"><span>Item In Cart: ${totalItem}</span></a>					
+                        </div>
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Tên sp</th>						
-                                    <th>Số lượng</th>
-                                    <th>Giảm giá</th>
-                                    <th>Số tiền</th>
-                                    <th>Tổng</th>
+                                    <th>#</th>
+                                    <th>Tên sản phẩm</th>						
+                                    <th>Quy cách</th>
+                                    <th>Giá</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="item" items="${list}">
+                                <c:forEach var="prod" items="${list}">
                                     <tr>
-                                        <td>${item.name}</td>
-                                        <td>${item.quantity}</td>
-                                        <td>${item.discount}%</td>                        
-                                        <td><del class="text-error">${item.totalPrice}</del></td>
-                                        <td>${item.afterDiscount}</td>
+                                        <td>${prod.id}</td>
+                                        <td>${prod.tensp}</td>
+                                        <td>${prod.quycach}</td>                        
+                                        <td>${prod.gia}</td>
                                         <td>
-                                            <a href="./cart/delete.html?id=${item.prodId}" class="delete" title="Delete" data-
-                                               toggle="tooltip">Xóa</a>
+                                            <form action="/sampleapp/muahang/add.html" method="post">
+                                                <input type="hidden" name="prodId" value="${prod.id}" required>
+                                                <input type="hidden" name="spec" value="${prod.quycach}" required>
+                                                <input type="hidden" name="price" value="${prod.gia}" required>
+                                                <input type="hidden" name="name" value="${prod.tensp}" required>
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><input type="text" name="quantity" placeholder="Số lượng" required></td>
+                                                            <td><input type="text" name="discount" placeholder="Giảm giá (%)" required></td>
+                                                            <td><button type="submit" class="btn btn-primary" title="Add to Cart"><i class="fa fa-cart-plus"></i></button></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </form>
                                         </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
-                            <a href="./cart/clear.html" style=";" class="btn btn-sm btn-primary mb-2">Xóa tất cả</a>
                         </table>
+
                     </div>
                 </div>
             </div>

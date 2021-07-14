@@ -13,8 +13,8 @@ import java.util.List;
  *
  * @author Trung
  */
-public class CartInfo {
-    private List<ItemInCart> carts = new ArrayList<ItemInCart>();
+public class GioHang {
+    private List<SanPhamGh> carts = new ArrayList<SanPhamGh>();
     private int cusId;
     private Date date;
     private int discount;
@@ -24,7 +24,7 @@ public class CartInfo {
     
     public float getTotalPrice() {
         totalPrice = 0;
-        for (ItemInCart cart : carts) {
+        for (SanPhamGh cart : carts) {
             totalPrice += cart.getAfterDiscount();
         }
         return totalPrice;
@@ -40,10 +40,10 @@ public class CartInfo {
         carts.clear();
     }
     
-    public void addItem(ItemInCart item){
+    public void addItem(SanPhamGh item){
         boolean flag = true;
         
-        for (ItemInCart iic : carts){
+        for (SanPhamGh iic : carts){
             if (iic.getProdId() == item.getProdId()) {
                 iic.setQuantity(iic.getQuantity() + item.getQuantity());
                 iic.setDiscount(item.getDiscount());
@@ -55,7 +55,7 @@ public class CartInfo {
         }
     }
 
-    public List<ItemInCart> getCarts() {
+    public List<SanPhamGh> getCarts() {
         return carts;
     }
 
@@ -84,7 +84,7 @@ public class CartInfo {
     }
 
     public void deleteItemByProdId(int prodId) {
-        for (ItemInCart cart : carts) {
+        for (SanPhamGh cart : carts) {
             if (cart.getProdId() == prodId) {
                 carts.remove(cart);
                 return;
