@@ -12,22 +12,26 @@ import model.KhachHang;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+
 /**
  *
  * @author Son_Bui
  */
 public class KhachHangDao {
+
     JdbcTemplate template;
+
     public void setTemplate(JdbcTemplate template) {
         this.template = template;
     }
+
     public void Them(KhachHang kh) {
         String sql = String.format("insert into khachhang(tenKh,sdt,diaChi,soDu) values('%s','%s','%s','%s')", kh.getTenKh(), kh.getSdt(), kh.getDiaChi(), kh.getSoDu());
         template.update(sql);
     }
 
     public int CapNhat(KhachHang kh) {
-        String sql = String.format("update khachhang set tenKh='%s',sdt='%s', diaChi='%s', soDu='%s' where id=%d",kh.getTenKh(), kh.getSdt(), kh.getDiaChi(), kh.getSoDu(),kh.getId());
+        String sql = String.format("update khachhang set tenKh='%s',sdt='%s', diaChi='%s', soDu='%s' where id=%d", kh.getTenKh(), kh.getSdt(), kh.getDiaChi(), kh.getSoDu(), kh.getId());
         return template.update(sql);
     }
 
@@ -49,21 +53,22 @@ public class KhachHangDao {
                 e.setTenKh(rs.getString(2));
                 e.setSdt(rs.getString(3));
                 e.setDiaChi(rs.getString(4));
-                e.setSoDu(rs.getFloat(5));            
+                e.setSoDu(rs.getFloat(5));
                 return e;
             }
         });
     }
-    
-    public List<KhachHang> TimKiemDanhSachKhachHang() {
-        return template.query("select * from khachhang", new RowMapper<KhachHang>() {
+
+    public List<KhachHang> TimKiemKhachHang(KhachHang kh) {
+        String sql = "SELECT * FROM khachhang as kh WHERE kh.tenKh LIKE N'%" + kh.getTenKh() + "%'";
+        return template.query(sql, new RowMapper<KhachHang>() {
             public KhachHang mapRow(ResultSet rs, int row) throws SQLException {
                 KhachHang e = new KhachHang();
                 e.setId(rs.getInt(1));
                 e.setTenKh(rs.getString(2));
                 e.setSdt(rs.getString(3));
                 e.setDiaChi(rs.getString(4));
-                e.setSoDu(rs.getFloat(5));            
+                e.setSoDu(rs.getFloat(5));
                 return e;
             }
         });

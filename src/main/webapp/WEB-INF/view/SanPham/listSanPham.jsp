@@ -40,7 +40,16 @@
                         <h5 class="font-weight-bold">Danh sách sản phẩm</h5>
                     </div>
                     <div class="card-body">
-                        <a href="./add.html" class="btn btn-sm btn-primary mb-2">Thêm</a>
+                        <div class="d-flex justify-content-between">
+                            <a href="./add.html" style="height: 38px;" class="btn btn-sm btn-primary mb-2">Thêm</a>
+                            <form action="./search.html" method="POST" class="d-flex">
+                                <div class="form-group">
+                                    <!--<span class="fas fa-search search-icon"></span>-->
+                                    <input style="width: 400px;" name="tensp" type="text" class="form-control" placeholder="Tìm kiếm theo tên">
+                                </div>
+                                <input style="height: 38px;" type="submit" class="btn btn-outline-primary btn-sm" value="Tìm kiếm"/>
+                            </form> 
+                        </div>
                         <table class="table table-stripe table-bordered">
                             <thead>
                                 <tr>

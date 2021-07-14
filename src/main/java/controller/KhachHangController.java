@@ -66,13 +66,12 @@ public class KhachHangController {
     public String Xoa(@RequestParam("id") int id) {
         dao.Xoa(id);
         return "redirect:/khachhang/list.html";
-
     }
 
     @RequestMapping(value = "/khachhang/search", method = RequestMethod.POST)
-    public ModelAndView TimKiem(String tenKH) {
+    public ModelAndView TimKiem(KhachHang kh) {
         logger.info("Hien thi giao dien danh sach khach hang");
-        List<KhachHang> lst = dao.TimKiemDanhSachKhachHang();
+        List<KhachHang> lst = dao.TimKiemKhachHang(kh);
         return new ModelAndView("KhachHang/listKhachHang", "list", lst);
     }
 }

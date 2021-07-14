@@ -69,4 +69,11 @@ public class SanPhamController {
         return "redirect:/sanpham/list.html";
 
     }
+    
+    @RequestMapping(value = "/sanpham/search", method = RequestMethod.POST)
+    public ModelAndView TimKiem(SanPham sp) {
+        logger.info("Hien thi giao dien danh sach san pham");
+        List<SanPham> lst = dao.TimKiemSanPham(sp);
+        return new ModelAndView("SanPham/listSanPham", "list", lst);
+    }
 }

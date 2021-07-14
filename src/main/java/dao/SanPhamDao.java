@@ -12,22 +12,26 @@ import model.SanPham;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+
 /**
  *
  * @author Son_Bui
  */
 public class SanPhamDao {
+
     JdbcTemplate template;
+
     public void setTemplate(JdbcTemplate template) {
         this.template = template;
     }
+
     public void Them(SanPham sp) {
         String sql = String.format("insert into sanpham (tensp,quycach,gia) values(N'%s',N'%s','%s')", sp.getTensp(), sp.getQuycach(), sp.getGia());
         template.update(sql);
     }
 
     public int CapNhat(SanPham sp) {
-        String sql = String.format("update sanpham set tensp='%s',quycach='%s', gia='%s' where id=%d",sp.getTensp(), sp.getQuycach(), sp.getGia(),sp.getId());
+        String sql = String.format("update sanpham set tensp='%s',quycach='%s', gia='%s' where id=%d", sp.getTensp(), sp.getQuycach(), sp.getGia(), sp.getId());
         return template.update(sql);
     }
 
@@ -48,7 +52,21 @@ public class SanPhamDao {
                 e.setId(rs.getInt(1));
                 e.setTensp(rs.getString(2));
                 e.setQuycach(rs.getString(3));
-                e.setGia(rs.getDouble(4));
+                e.setGia(rs.getInt(4));
+                return e;
+            }
+        });
+    }
+
+    public List<SanPham> TimKiemSanPham(SanPham sp) {
+        String sql = "SELECT * FROM sanpham as sp WHERE sp.tensp LIKE N'%" + sp.getTensp() + "%'";
+        return template.query(sql, new RowMapper<SanPham>() {
+            public SanPham mapRow(ResultSet rs, int row) throws SQLException {
+                SanPham e = new SanPham();
+                e.setId(rs.getInt(1));
+                e.setTensp(rs.getString(2));
+                e.setQuycach(rs.getString(3));
+                e.setGia(rs.getInt(4));
                 return e;
             }
         });

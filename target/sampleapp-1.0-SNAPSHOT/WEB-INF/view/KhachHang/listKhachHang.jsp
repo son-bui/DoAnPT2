@@ -39,13 +39,14 @@
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            <a href="./add.html" class="btn btn-sm btn-primary mb-2">Thêm</a>
+                            <a href="./add.html" style="height: 38px;" class="btn btn-sm btn-primary mb-2">Thêm</a>
                             <form action="./search.html" method="POST" class="d-flex">
                                 <div class="form-group">
                                     <!--<span class="fas fa-search search-icon"></span>-->
-                                    <input style="width: 400px;" type="text" class="form-control" placeholder="Tìm kiếm theo tên">
+                                    <input style="width: 400px;" name="tenKh" type="text" class="form-control" placeholder="Tìm kiếm theo tên">
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-sm" value="Tìm kiếm"/>
+                                <input type="submit" style="height: 38px;" class="btn btn-outline-primary btn-sm" value="Tìm kiếm"/>
+                            </form> 
                         </div>
                         <table class="table table-striped table-bordered">
                             <thead>
