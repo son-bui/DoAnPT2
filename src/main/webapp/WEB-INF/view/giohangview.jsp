@@ -66,8 +66,25 @@
                                     </tr>
                                 </c:forEach>
                             </tbody>
-                            <a href="./giohang/clear.html" style=";" class="btn btn-sm btn-primary mb-2">Xóa tất cả</a>
+                            <form action="./thanhtoan.html" method="POST">
+                                <div class="d-flex">
+                                    <select class="form-control mb-2" style="width: 50%;" id="id" name="id">
+                                        <c:forEach var="kh" items="${lstcus}">
+                                            <option value="${kh.id}" selected>${kh.tenKh}</option>                                      
+                                        </c:forEach>
+                                    </select>
+                                    <!--<input href="./thanhtoan.html" class="btn btn-sm btn-primary mb-2">Thanh toán</a>-->
+                                    <input type="submit" style="height: 38px;" class="btn btn-primary" value="Thanh toán"/>
+                                </div>
+                            </form>
+                            <a href="./giohang/clear.html" style="" class="btn btn-sm btn-primary mb-2 mr-2">Xóa tất cả</a>
+
                         </table>
+                        <div class="clearfix"  style="float: right;">
+                            <ul class="pagination">
+                                <li class="page-item"><b>Tổng tiền: ${totalprice}</b></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

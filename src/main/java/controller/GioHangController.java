@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
+import model.KhachHang;
 /**
  *
  * @author Trung
@@ -68,5 +69,15 @@ public class GioHangController {
         mav.addObject("totalprice", Session.SanPhamGHSession.getTotalPrice());
         
         return mav;
+    }
+    
+    @RequestMapping(value = "/thanhtoan")
+    public String ThanhToan(HttpServletRequest request){
+        int id = Integer.parseInt(request.getParameter("id"));
+        float tongtien = Session.SanPhamGHSession.getTotalPrice();
+        KhachHang kh = cusdao.TimKiemKhachHangId(id);
+        float sodu = tongtien - kh.getSoDu();
+        cusdao.ThanhToan(id, sodu);
+        return "redirect:/khachhang/list.html";
     }
 }

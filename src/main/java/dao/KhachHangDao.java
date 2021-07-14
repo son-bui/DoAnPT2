@@ -73,4 +73,9 @@ public class KhachHangDao {
             }
         });
     }
+
+    public int ThanhToan(int id, float sodu) {
+        String sql = "update khachhang set soDu=" + sodu + " where id=" + id;
+        return template.update(sql);
+    }
 }
