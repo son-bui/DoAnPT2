@@ -46,7 +46,7 @@
                                     <th>Tên sp</th>						
                                     <th>Số lượng</th>
                                     <th>Giảm giá</th>
-                                    <th>Số tiền</th>
+                                    <th>Khuyến mãi</th>
                                     <th>Tổng</th>
                                     <th></th>
                                 </tr>

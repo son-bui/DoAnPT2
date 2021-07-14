@@ -39,7 +39,7 @@
             <div style="width: 75%;" class="">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="font-weight-bold">Nap tien</h5>
+                        <h5 class="font-weight-bold">Nạp tiền</h5>
                     </div>
                     <div class="card-body">
                         <form action="./naptiendone.html" method="POST">

@@ -92,12 +92,10 @@ public class GioHangController {
         float sodu = tongtien - kh.getSoDu();
         cusdao.ThanhToan(id, sodu);
 
-//        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-//        String dateFormat = formatter.format(java.time.LocalDate.now());
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate localDate = LocalDate.now();
         String date = String.valueOf(dtf.format(localDate));
-//        String date = String.valueOf(java.time.LocalDate.now());
+        
         HoaDon hd = new HoaDon();
         hd.setMaKh(id);
         hd.setNgayLap(date);
