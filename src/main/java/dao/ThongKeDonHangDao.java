@@ -26,7 +26,10 @@ public class ThongKeDonHangDao {
     }
 
     public List<ThongKeDonHang> LayDanhSachHoaDon() {
-        return template.query("select hd.id, kh.tenKh, hd.ngayLap, hd.tongTien FROM khachhang AS kh JOIN hoadon AS hd ON kh.id=hd.maKh", new RowMapper<ThongKeDonHang>() {
+        return template.query(
+                "select hd.id, kh.tenKh, hd.ngayLap, sum(hd.tongTien) AS tongTien "
+                + "FROM khachhang AS kh JOIN hoadon AS hd ON kh.id=hd.maKh "
+                + "group by kh.tenKh, hd.ngayLap", new RowMapper<ThongKeDonHang>() {
             public ThongKeDonHang mapRow(ResultSet rs, int row) throws SQLException {
                 ThongKeDonHang e = new ThongKeDonHang();
                 e.setId(rs.getInt(1));

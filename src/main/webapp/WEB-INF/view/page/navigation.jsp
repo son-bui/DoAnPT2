@@ -31,7 +31,10 @@
                     <i class="fas fa-user text-white mr-2"></i>
                     <a class="nav-link text-white" href="http://localhost:8080/sampleapp/giohang.html">Giỏ hàng</a>
                 </li>
-                
+                <li class="nav-item d-flex align-items-center pl-5 py-2">
+                    <i class="fas fa-user text-white mr-2"></i>
+                    <a class="nav-link text-white" href="http://localhost:8080/sampleapp/thongkedonhang.html">Thống kê đơn hàng</a>
+                </li>
 
             </ul>
         </nav>
